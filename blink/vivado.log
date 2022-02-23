@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Feb 23 10:58:19 2022
+# Process ID: 28252
+# Current directory: C:/GitHub/ESDII-Lab4/blink
+# Command line: vivado.exe -notrace -mode batch -source project.tcl
+# Log file: C:/GitHub/ESDII-Lab4/blink/vivado.log
+# Journal file: C:/GitHub/ESDII-Lab4/blink\vivado.jou
+#-----------------------------------------------------------
+source project.tcl -notrace
+ERROR: [Board 49-71] The board_part definition was not found for krtkl.com:snickerdoodle_black:part0:1.0. The project's board_part property was not set, but the project's part property was set to xc7z020clg400-3. Valid board_part values can be retrieved with the 'get_board_parts' Tcl command. Check if board.repoPaths parameter is set and the board_part is installed from the tcl app store.
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 23 10:58:34 2022...
