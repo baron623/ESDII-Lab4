@@ -13,6 +13,7 @@ class Example(QtGui.QWidget):
     
     def __init__(self):
         super(Example, self).__init__()
+        self.timer = QtCore.QBasicTimer()
         self.val = 1
         
         self.initUI()
@@ -20,8 +21,9 @@ class Example(QtGui.QWidget):
         
     def initUI(self):      
 
+        self.timer.start(0,self)
         self.col = QtGui.QColor(0, 0, 0)       
-        
+
         #Freq TitleLabel
         self.labelFreqTitle = QtGui.QLabel(self)
         self.labelFreqTitle.setText("Frequency")
@@ -32,10 +34,11 @@ class Example(QtGui.QWidget):
         self.freq.setSingleStep(1)
         self.freq.setMinimum(1)
         self.freq.setMaximum(255)
-        self.freq.valueChanged[int].connect(self.freqEditChanged)
+        self.freq.valueChanged[int].connect(self.sliderValChanged)
 
         # Frequency Edit Slider
         self.FreqEdit = QtGui.QLineEdit(self)
+        self.FreqEdit.setText('0')
         self.FreqEdit.returnPressed.connect(self.freqEditChanged)
 
         self.square = QtGui.QFrame(self)
@@ -46,41 +49,50 @@ class Example(QtGui.QWidget):
         #Grid Layout
         grid = QtGui.QGridLayout()
         self.setLayout(grid)
-        grid.addWidget(self.labelFreqTitle, 0,0)
-        grid.addWidget(self.freq, 1,0)
-        grid.addWidget(self.FreqEdit, 1,1)
-        #grid.addWidget(self.square, 2,2)
+        grid.addWidget(self.labelFreqTitle, 1,0)
+        grid.addWidget(self.freq, 1,1)
+        grid.addWidget(self.FreqEdit, 1,2)
+        grid.addWidget(self.square, 2,2)
         grid.setSpacing(5)
 
         self.setGeometry(300, 300, 280, 170)
         self.setWindowTitle('Lab 4 - Blink')
         self.show()
         
-    def sliderValChanged(self):
-        #self.sliderlbl.setValue(self.freq_slider)
-        self.col.setRed(self.freq)
+
+    def sliderValChanged(self, value):
+        self.FreqEdit.setText(str(value))
+        #self.writeMem(value)
 
     def freqEditChanged(self):
-        globals.freq = float(self.freqEdit.text())
-        self.freq.setValue(globals.freq)
+        frequency = int(self.FreqEdit.text())
+        self.freq.setValue(frequency)
+        #self.writeMem(frequency)
+        
+    def timerEvent(self, event):
+        if (event.timerId() != self.timer.timerId()):
+            return
+        
+        print("Timer Event")
+        #self.readMem()
 
-    def setColor(self, pressed):
+    # def setColor(self, pressed):
         
-        source = self.sender()
+    #     source = self.sender()
         
-        if pressed:
-            val = 255
-        else: val = 0
+    #     if pressed:
+    #         val = 255
+    #     else: val = 0
                         
-        if source.text() == "Red":
-            self.col.setRed(val)                
-        elif source.text() == "Green":
-            self.col.setGreen(val)             
-        else:
-            self.col.setBlue(val) 
+    #     if source.text() == "Red":
+    #         self.col.setRed(val)                
+    #     elif source.text() == "Green":
+    #         self.col.setGreen(val)             
+    #     else:
+    #         self.col.setBlue(val) 
             
-        self.square.setStyleSheet("QFrame { background-color: %s }" %
-            self.col.name())  
+    #     self.square.setStyleSheet("QFrame { background-color: %s }" %
+    #         self.col.name())  
     
     def readMem(self):
         # Is the virtual LED on or off?
