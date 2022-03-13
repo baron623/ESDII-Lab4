@@ -33,7 +33,7 @@ class Example(QtGui.QWidget):
         #freq_slider.setGeometry(30, 40, 100, 30)
         self.freq.setSingleStep(1)
         self.freq.setMinimum(1)
-        self.freq.setMaximum(255)
+        self.freq.setMaximum(10000)
         self.freq.valueChanged[int].connect(self.sliderValChanged)
 
         # Frequency Edit Slider
@@ -72,8 +72,7 @@ class Example(QtGui.QWidget):
     def timerEvent(self, event):
         if (event.timerId() != self.timer.timerId()):
             return
-        
-        print("Timer Event")
+
         #self.readMem()
 
     # def setColor(self, pressed):
