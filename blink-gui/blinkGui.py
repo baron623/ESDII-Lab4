@@ -115,6 +115,16 @@ class Example(QtGui.QWidget):
         # Print value (Need to write this to the Box for Blink, 1 or 0)
         print(str(reg) + " = " + str(fromMem))
 
+        if fromMem == 0:
+            self.col.setRed(255) 
+            self.col.setGreen(0)
+            self.col.setBlue(0) 
+
+        else:
+            self.col.setRed(0) 
+            self.col.setGreen(0)
+            self.col.setBlue(0)   
+
         mem.close
 
     def writeMem(self, val):
