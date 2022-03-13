@@ -112,7 +112,7 @@ class Example(QtGui.QWidget):
         fromMem = struct.unpack('l', mem.read(4))[0] 
   
         # Print value (Need to write this to the Box for Blink, 1 or 0)
-        print(str(reg) + " = " + str(fromMem))
+        #print(str(reg) + " = " + str(fromMem))
 
         if fromMem == 0:
             self.col.setRed(255) 
