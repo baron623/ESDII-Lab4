@@ -35,7 +35,7 @@ class Example(QtGui.QWidget):
         #freq_slider.setGeometry(30, 40, 100, 30)
         self.freq.setSingleStep(1)
         self.freq.setMinimum(1)
-        self.freq.setMaximum(10000)
+        self.freq.setMaximum(50000000)
         self.freq.valueChanged[int].connect(self.sliderValChanged)
 
         # Frequency Edit Slider
@@ -45,8 +45,9 @@ class Example(QtGui.QWidget):
 
         self.square = QtGui.QFrame(self)
         #self.square.setGeometry(150, 20, 100, 100)
-        self.square.setStyleSheet("QWidget { background-color: %s }" %  
-            self.col.name())
+        #self.square.setStyleSheet("QWidget { background-color: %s }" %  
+            #self.col.name())
+        self.square.setStyleSheet("background-color: black;")
         
         #Grid Layout
         grid = QtGui.QGridLayout()
@@ -106,7 +107,7 @@ class Example(QtGui.QWidget):
 
         #seek to register
         mem.seek(reg)  
-        mem.write(struct.pack('l', toMem))
+        #mem.write(struct.pack('l', toMem))
 
         time.sleep(.5) 
 
@@ -117,14 +118,16 @@ class Example(QtGui.QWidget):
         #print(str(reg) + " = " + str(fromMem))
 
         if fromMem == 0:
-            self.col.setRed(255) 
-            self.col.setGreen(0)
-            self.col.setBlue(0) 
+            self.square.setStyleSheet("background-color: red;")
+            #self.col.setRed(255) 
+            #self.col.setGreen(0)
+            #self.col.setBlue(0) 
 
         else:
-            self.col.setRed(0) 
-            self.col.setGreen(0)
-            self.col.setBlue(0)   
+            self.square.setStyleSheet("background-color: black;")
+            #self.col.setRed(0) 
+            #self.col.setGreen(0)
+            #self.col.setBlue(0)   
 
         mem.close
 
@@ -145,7 +148,7 @@ class Example(QtGui.QWidget):
         mem.seek(reg)  
         fromMem = struct.unpack('l', mem.read(4))[0] 
   
-        print(str(reg) + " = " + str(fromMem))
+        #print(str(reg) + " = " + str(fromMem))
   
         mem.close()
 
