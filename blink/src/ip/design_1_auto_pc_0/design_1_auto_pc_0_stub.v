@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Wed Mar  2 10:40:14 2022
-// Host        : DESKTOP-DSD2UUK running 64-bit major release  (build 9200)
+// Date        : Tue Mar 15 21:38:01 2022
+// Host        : GOL1360-13 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/GitHub/ESDII-Lab4/blink/src/ip/design_1_auto_pc_0/design_1_auto_pc_0_stub.v
+//               s:/ESDII-Lab4-main/blink/src/ip/design_1_auto_pc_0/design_1_auto_pc_0_stub.v
 // Design      : design_1_auto_pc_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-3

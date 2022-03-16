@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/GitHub/ESDII-Lab4/blink/project/blink.runs/design_1_auto_pc_0_synth_1'
+HD_PWD='S:/ESDII-Lab4-main/blink/project/blink.runs/design_1_auto_pc_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
