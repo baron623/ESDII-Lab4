@@ -64,18 +64,18 @@ class Example(QtGui.QWidget):
 
     def sliderValChanged(self, value):
         self.FreqEdit.setText(str(value))
-        #self.writeMem(value)
+        self.writeMem(value)
 
     def freqEditChanged(self):
         frequency = int(self.FreqEdit.text())
         self.freq.setValue(frequency)
-        #self.writeMem(frequency)
+        self.writeMem(frequency)
         
     def timerEvent(self, event):
         if (event.timerId() != self.timer.timerId()):
             return
-
-        #self.readMem()
+ 
+        self.readMem()
 
     # def setColor(self, pressed):
         
@@ -149,8 +149,7 @@ class Example(QtGui.QWidget):
   
         mem.close()
 
-def main():
-    
+def main():   
     app = QtGui.QApplication(sys.argv)
     ex = Example()
     sys.exit(app.exec_())
