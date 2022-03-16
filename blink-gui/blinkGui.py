@@ -9,6 +9,8 @@ import struct
 #from PyQt4.QtCore import *
 from PyQt4 import QtGui, QtCore
 
+f = open("/dev/mem", "r+b")
+
 class Example(QtGui.QWidget):
     
     def __init__(self):
